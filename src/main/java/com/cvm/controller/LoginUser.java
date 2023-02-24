@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cvm.dao.AdminDao;
 import com.cvm.entity.Admin;
 import com.cvm.entity.AdminAuthentication;
 import com.cvm.entity.Employees;
@@ -16,8 +15,6 @@ import com.cvm.entity.EmployeesAuthentication;
 import com.cvm.entity.MedicalStaff;
 import com.cvm.entity.MedicalstaffAuthentication;
 import com.cvm.exception.EmailIdNotFoundException;
-import com.cvm.service.EmployeeAuthenticationServiceImpl;
-import com.cvm.service.AdminServices;
 import com.cvm.service.AuthenticationService;
 
 import io.swagger.v3.oas.annotations.Operation;
