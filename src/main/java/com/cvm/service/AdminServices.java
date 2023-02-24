@@ -22,8 +22,8 @@ public class AdminServices {
 		String encryptedPwd = bcrypt.encode(admin.getPassword());
 		admin.setPassword(encryptedPwd);
 		Admin dbAdmin = ad.save(admin);
-		return "Added Successfully with AdminId:" + dbAdmin.getAdminId();
-		}
+		return "Added Successfully with AdminId :" + dbAdmin.getAdminId();
+		} 
 		public List<Admin> findAll() throws NoAdminsFoundException {
 		List<Admin> list = ad.findAll();
 		if (list.isEmpty())
@@ -40,7 +40,7 @@ public class AdminServices {
 		return op.get();
 		} 
 		else {
-		throw new AdminsIdNotFoundException("Admin Not Found For adminId:" + adminId);
+		throw new AdminsIdNotFoundException("Admin Not Found For adminId : " + adminId);
 		}
 		}
 		public String updateAdmin(long adminId, Admin admins) throws AdminsIdNotFoundException 
@@ -48,9 +48,9 @@ public class AdminServices {
 		if (adminId == admins.getAdminId()) 
 		{
 		Admin upAdmin = ad.save(admins);
-		return "Updated Successfully for AdminId:" + upAdmin.getAdminId();
+		return "Updated Successfully for AdminId :" + upAdmin.getAdminId();
 		}
-		throw new AdminsIdNotFoundException("Admin Not Found For adminId:" + adminId);
+		throw new AdminsIdNotFoundException("Admin Not Found For adminId :" + adminId);
 		}
 	
 		
@@ -58,9 +58,9 @@ public class AdminServices {
 			if (ad.existsById(adminId)) 
 			{
 			ad.deleteById(adminId);
-			return "Deleted Successfully for AdminId:" + adminId;
+			return "Deleted Successfully for AdminId :" + adminId;
 			}
-			throw new AdminsIdNotFoundException("Admin Not Found For adminId:" + adminId);
+			throw new AdminsIdNotFoundException("Admin Not Found For adminId :" + adminId);
 		}
 
 }

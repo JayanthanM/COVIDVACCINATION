@@ -23,9 +23,9 @@ import lombok.Setter;
 @Setter
 public class Employees {
 	@Id
-	@GeneratedValue
-	private long emp_id;
-	private String emp_name;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long empId;
+	private String empName;
 	private String password;
 	private Date birthdate;
 	private String mobileNo;
@@ -35,9 +35,9 @@ public class Employees {
 	
 	@OneToMany(mappedBy = "employees",cascade = CascadeType.ALL)
 	@JsonIgnore
-	List<VitalsAtVaccination> vitals=new ArrayList<>();
+	List<VitalsAtVaccination> vitals;
 	
 	@OneToMany(mappedBy = "employees",cascade = CascadeType.ALL)
 	@JsonIgnore
-	List<Certification> certificates=new ArrayList<>();
+	List<Certification> certificates;
 }

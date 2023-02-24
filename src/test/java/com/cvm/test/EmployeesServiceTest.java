@@ -77,7 +77,7 @@ public class EmployeesServiceTest {
 	{
 		long employeeId = 1L;
 		Employees emps = new Employees();
-		emps.setEmp_id(employeeId);
+		emps.setEmpId(employeeId);
 		when(ed.save(emps)).thenReturn(emps);
 		String result = es.updateEmployee(employeeId, emps);
 		assertEquals("Updated Successfully for id:" + employeeId, result);
@@ -88,7 +88,7 @@ public class EmployeesServiceTest {
 		long employeeId = 1L;
 		long wrongId = 2L;
 		Employees emps = new Employees();
-		emps.setEmp_id(employeeId);
+		emps.setEmpId(employeeId);
 		es.updateEmployee(wrongId, emps);
 		}
 	@Test

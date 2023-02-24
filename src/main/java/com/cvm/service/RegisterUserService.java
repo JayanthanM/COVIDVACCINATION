@@ -27,7 +27,7 @@ public class RegisterUserService {
 		admin.setPassword(encryptedPwd);
 
 		Admin dbAdmin = ad.save(admin);
-		return "Added Successfully with AdminId:" + dbAdmin.getAdminId();
+		return "Added Successfully with AdminId :" + dbAdmin.getAdminId();
 	}
 	
 	@Autowired
@@ -53,7 +53,7 @@ public class RegisterUserService {
 		staffs.setPassword(encryptedPwd);
 
 		MedicalStaff dbStaff = msd.save(staffs);
-		return "Added Successfully with staffId:" + dbStaff.getStaffId();
+		return "Added Successfully with staffId :" + dbStaff.getStaffId();
 	}
 
 	public String insertEmployee(@Valid Employees emp) {
@@ -62,7 +62,7 @@ public class RegisterUserService {
 		emp.setPassword(encryptedPwd);
 
 		Employees dbEmp = ed.save(emp);
-		return "Added Successfully with Id:" + dbEmp.getEmp_id();
+		return "Added Successfully with Id :" + dbEmp.getEmpId();
 	}
 
 }

@@ -33,7 +33,7 @@ public class CertificationServiceTest
 		certificates.setCertificateId(1);
 		when(cd.save(certificates)).thenReturn(certificates);
 		String result = cs.insertCertificate(certificates);
-		assertEquals("Added Successfully with certificateId:1", result);
+		assertEquals("Added Successfully with certificateId :1", result);
 		}
 	@Test
 	public void testFindByCertificateIdSuccess() throws CertificatesIdNotFoundException 

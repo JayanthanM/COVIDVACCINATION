@@ -35,7 +35,8 @@ public class EmployeesController {
 //		return rEntity;
 //	}
 
-	@Operation(summary = "Get All Employee Details")
+	
+	@Operation(summary = "Get All Employee Details") 
 	@GetMapping("/employees")
 	public List<Employees> fetchAllEmployees() throws NoEmployeesFoundException {
 		return es.findAll();

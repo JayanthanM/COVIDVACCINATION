@@ -40,7 +40,7 @@ public class VitalsAtVaccinationServiceTest {
 	 vv.setVitalTime("10pm");
 	 when(vd.save(vv)).thenReturn(vv);
 	 String result = vs.insertVitals(vv);
-	 assertEquals("Added Successfully with ID:"+vv.getVitalId(),result);
+	 assertEquals("Added Successfully with ID :"+vv.getVitalId(),result);
 }
 
 	@Test

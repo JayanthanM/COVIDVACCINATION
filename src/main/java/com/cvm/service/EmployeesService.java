@@ -25,7 +25,7 @@ public class EmployeesService {
 		String encryptedPwd = bcrypt.encode(emp.getPassword());
 		emp.setPassword(encryptedPwd);
 		Employees employee = ed.save(emp);
-		return "Added Successfully with Id :" + employee.getEmp_id();
+		return "Added Successfully with Id :" + employee.getEmpId();
 	}
 
 	public List<Employees> findAll() throws NoEmployeesFoundException {
@@ -41,16 +41,16 @@ public class EmployeesService {
 		if (op.isPresent()) {
 			return op.get();
 		} else {
-			throw new EmployeeIdNotFoundException("Employee Not Found For Id:" + employeeId);
+			throw new EmployeeIdNotFoundException("Employee Not Found For Id :" + employeeId);
 		}
 	}
 
 	public String updateEmployee(long employeeId, Employees emps) throws EmployeeIdNotFoundException {
-		if (employeeId == emps.getEmp_id()) {
+		if (employeeId == emps.getEmpId()) {
 			Employees upTin = ed.save(emps);
-			return "Updated Successfully for id:" + upTin.getEmp_id();
+			return "Updated Successfully for id:" + upTin.getEmpId();
 		}
-		throw new EmployeeIdNotFoundException("Employee Not Found For Id:" + employeeId);
+		throw new EmployeeIdNotFoundException("Employee Not Found For Id :" + employeeId);
 	}
 
 	public String deleteById(long employeeId) throws EmployeeIdNotFoundException 
@@ -59,7 +59,7 @@ public class EmployeesService {
 			ed.deleteById(employeeId);
 			return "Deleted Successfully for id:" + employeeId;
 		}
-		throw new EmployeeIdNotFoundException("Employee Not Found For Id:" + employeeId);
+		throw new EmployeeIdNotFoundException("Employee Not Found For Id :" + employeeId);
 	}
 
 }

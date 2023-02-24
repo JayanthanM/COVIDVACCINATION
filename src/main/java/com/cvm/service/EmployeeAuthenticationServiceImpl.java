@@ -19,19 +19,19 @@ import com.cvm.exception.EmployeeMobileNoNotExistingException;
 
 
 @Service("employeeAuthenticationService")
-public class EmployeeAuthenticationServiceImpl implements EmployeeAuthenticationService {
+public class EmployeeAuthenticationServiceImpl implements AuthenticationService {
 	@Autowired
 	EmployeesDao employeeRepository;
 	
 	@Override
-	public Employees login(String mobileNo, String password)
+	public Employees loginemployee(String mobileNo, String password)
 	{
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		Optional<Employees> optionalEmployee = employeeRepository.findByMobileNo(mobileNo);
 		
 		if(optionalEmployee.isEmpty())
 		{
-			throw new EmployeeMobileNoNotExistingException("Employee Not registred.");
+			throw new EmployeeMobileNoNotExistingException("Employee Not registred");
 		}
 		Employees employee = optionalEmployee.get();
 		if(bcrypt.matches(password,employee.getPassword()))

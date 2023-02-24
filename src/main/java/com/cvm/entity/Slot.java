@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -40,7 +41,7 @@ import lombok.Setter;
 public class Slot {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int slotId;
 	
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
@@ -60,14 +61,6 @@ public class Slot {
 	@Min(value = 0 , message="Available slots must be positive")
 	private int balanceSlots;
 	
-	
-	
-//	@Min(value = 1 , message="Admin Id must be starts from 1")
-//	private int adminId;
-//	
-//	@Min(value = 1 , message="Employee Id must be starts from 1")
-//	private int empId;
-//	
 	@ManyToOne
 	Admin admin;
 	
@@ -77,11 +70,6 @@ public class Slot {
 
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "slots")
 	@JsonIgnore
-	List<VitalsAtVaccination> vitals = new ArrayList<>();
+	List<VitalsAtVaccination> vitals;
 	
-//	public void setSlottoVitals(List<VitalsAtVaccination> vitalDetails)
-//	{
-//		for(VitalsAtVaccination temp: vitalDetails)
-//			temp.setSlots(this);
-//		}
 }

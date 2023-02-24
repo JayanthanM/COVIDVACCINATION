@@ -18,7 +18,7 @@ public class VitalsAtVaccinationService {
 
 	public String insertVitals(VitalsAtVaccination vvn) {
 		VitalsAtVaccination vaVvn = vt.save(vvn);
-		return "Added Successfully with ID:" + vaVvn.getVitalId();
+		return "Added Successfully with ID :" + vaVvn.getVitalId();
 	}
 
 	public List<VitalsAtVaccination> findAll() throws NoVitalsFoundException {

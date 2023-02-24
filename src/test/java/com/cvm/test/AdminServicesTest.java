@@ -46,7 +46,7 @@ public class AdminServicesTest {
 
 		when(ad.save(admin)).thenReturn(admin);
 		String result = as.insertAdmin(admin);
-		assertEquals("Added Successfully with AdminId:" + admin.getAdminId(), result);
+		assertEquals("Added Successfully with AdminId :" + admin.getAdminId(), result);
 	}
 
 	@Test
@@ -88,7 +88,7 @@ public class AdminServicesTest {
 		when(ad.existsById(admin.getAdminId())).thenReturn(true);
 		when(ad.save(admin)).thenReturn(admin);
 		String result = as.updateAdmin(id, admin);
-		assertEquals("Updated Successfully for AdminId:" + admin.getAdminId(), result);
+		assertEquals("Updated Successfully for AdminId :" + admin.getAdminId(), result);
 	}
 
 	@Test
@@ -100,7 +100,7 @@ public class AdminServicesTest {
 		admin.setPassword("mega");
 		when(ad.existsById(admin.getAdminId())).thenReturn(true);
 		String result = as.deleteById(admin.getAdminId());
-		assertEquals("Deleted Successfully for AdminId:" + admin.getAdminId(), result);
+		assertEquals("Deleted Successfully for AdminId :" + admin.getAdminId(), result);
 
 	}
 }

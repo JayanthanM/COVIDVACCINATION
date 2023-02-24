@@ -20,7 +20,7 @@ public class SlotService {
 
 	public String insertSlot(Slot s) {
 		Slot slot = slotdao.save(s);
-		return "Slot Added Successfully" + slot.getSlotId();
+		return "Slot Added Successfully: " + slot.getSlotId();
 	}
 
 	public List<Slot> findAll() throws NoSlotFoundException {
@@ -36,13 +36,13 @@ public class SlotService {
 		if(op.isPresent())
 			return op.get();
 		else
-			throw new NoSlotFoundException("Slot Not Found for Location:"+location);
+			throw new NoSlotFoundException("Slot Not Found for Location :"+location);
 	}
 
 	public Slot findBySlotId(int id) throws SlotIdNotFoundException {
 		Optional<Slot> op = slotdao.findById(id);
 		if (op.isEmpty())
-			throw new SlotIdNotFoundException("Slot is Not Existing" + id);
+			throw new SlotIdNotFoundException("Slot is Not Existing :" + id);
 		return op.get();
 	}
 
@@ -50,7 +50,7 @@ public class SlotService {
 		if (id == slot.getSlotId()) {
 			if (slotdao.existsById(id)) {
 				Slot upSlot = slotdao.save(slot);
-				return "Updated Successfully for id:" + upSlot.getSlotId();
+				return "Updated Successfully for id :" + upSlot.getSlotId();
 			}
 		}
 		throw new IdNotMatchException("Id is not matched");
@@ -59,8 +59,8 @@ public class SlotService {
 	public String deleteSlotById(int id) throws NoSlotFoundException {
 		if (slotdao.existsById(id)) {
 			slotdao.deleteById(id);
-			return "Deleted Successfully for id:" + id;
+			return "Deleted Successfully for id :" + id;
 		}
-		return "Record Not Found For Id:" + id;
+		return "Record Not Found For Id :" + id;
 	}
 }

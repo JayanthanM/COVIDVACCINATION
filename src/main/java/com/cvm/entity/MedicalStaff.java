@@ -29,11 +29,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class MedicalStaff {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long staffId;
 	@NotEmpty
 	//@NotBlank
-	private String staff_Name;
+	private String staffName;
 	@NotEmpty
 	//@NotBlank
 	private String associated_with;
@@ -47,9 +47,10 @@ public class MedicalStaff {
 //	@Size(max = 10)
 	//@NotEmpty
 	//@NotBlank
-	private String mobile_no;
+	private String mobileNo;
 	
 	@OneToMany(mappedBy = "medicalStaff", cascade = CascadeType.ALL)
 	@JsonIgnore
-	List<VitalsAtVaccination> vitals = new ArrayList<>();
+	
+	List<VitalsAtVaccination> vitals;
 }

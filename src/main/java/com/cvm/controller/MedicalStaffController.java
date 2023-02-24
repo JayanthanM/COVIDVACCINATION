@@ -53,12 +53,14 @@ public class MedicalStaffController {
 		return rEntity;
 	}
 
+	@Operation(summary = "modify the staff details by Id")
 	@PutMapping("/{staffId}")
 	public String modifyMedicalStaff( @PathVariable("staffId") long staffId,@Valid @RequestBody MedicalStaff staffs)
 			throws MedicalStaffIdNotFoundException {
 		return mss.updateMedicalStaff(staffId, staffs);
 	}
 
+	@Operation(summary = "delete medical staff by Id")
 	@DeleteMapping("/{staffId}")
 	public ResponseEntity<String> deleteMedicalStaffById(@PathVariable("staffId") long staffId)
 			throws MedicalStaffIdNotFoundException {

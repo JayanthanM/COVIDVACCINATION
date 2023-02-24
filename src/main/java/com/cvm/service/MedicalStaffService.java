@@ -24,7 +24,7 @@ public class MedicalStaffService {
 		String encryptedPwd = bcrypt.encode(staffs.getPassword());
 		staffs.setPassword(encryptedPwd);
 		MedicalStaff dbStaff = msd.save(staffs);
-		return "Added Successfully with staffId:" + dbStaff.getStaffId();
+		return "Added Successfully with staffId :" + dbStaff.getStaffId();
 	}
 
 	public List<MedicalStaff> findAll() throws NoMedicalStaffFoundException {
@@ -41,25 +41,25 @@ public class MedicalStaffService {
 		if (op.isPresent()) {
 			return op.get();
 		} else {
-			throw new MedicalStaffIdNotFoundException("MedicalStaff Not Found For staffId:"+staffId);
+			throw new MedicalStaffIdNotFoundException("MedicalStaff Not Found For staffId :"+staffId);
 		}
 	}
 
 	public String updateMedicalStaff(long staffId, MedicalStaff staffs) throws MedicalStaffIdNotFoundException {
 		if (staffId == staffs.getStaffId()) {
 			MedicalStaff upStaff = msd.save(staffs);
-			return "Updated Successfully for staffId:" + upStaff.getStaffId();
+			return "Updated Successfully for staffId :" + upStaff.getStaffId();
 		}
 		//return "staffID must be same in path Variable and in the request body";
-		throw new MedicalStaffIdNotFoundException("MedicalStaff Not Found For staffId:"+staffId);
+		throw new MedicalStaffIdNotFoundException("MedicalStaff Not Found For staffId :"+staffId);
 	}
 
 	public String deleteById(long staffId) throws MedicalStaffIdNotFoundException {
 		if (msd.existsById(staffId)) {
 			msd.deleteById(staffId);
-			return "Deleted Successfully for StaffId:" + staffId;
+			return "Deleted Successfully for StaffId :" + staffId;
 		}
-		throw new MedicalStaffIdNotFoundException("MedicalStaff Not Found For staffId:"+staffId);
+		throw new MedicalStaffIdNotFoundException("MedicalStaff Not Found For staffId :"+staffId);
 	}
 
 }

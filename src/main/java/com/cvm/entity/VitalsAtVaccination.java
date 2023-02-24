@@ -2,6 +2,7 @@ package com.cvm.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -24,7 +25,7 @@ import lombok.Setter;
 public class VitalsAtVaccination {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long vitalId;
 	@Min(value = 95, message = "Please provide temperature betweem 95-99")
 	@Max(value = 99, message = "Please provide temperature betweem 95-99")
@@ -39,11 +40,9 @@ public class VitalsAtVaccination {
 	private String vitalTime;
 
 	@ManyToOne
-	//@JsonIgnore
 	Slot slots;
 
 	@ManyToOne
-	//@JsonIgnore
 	MedicalStaff medicalStaff;
 	
 	@ManyToOne

@@ -70,13 +70,4 @@ public class SlotController {
 		ResponseEntity<String> rEntity = new ResponseEntity<String>(msg, HttpStatus.ACCEPTED);
 		return rEntity;
 	}
-
-	@Operation(summary = "Delete Slots")
-	@DeleteMapping("/slots/{id}")
-	public ResponseEntity<String> deleteSlotById(@PathVariable("id") int id) throws NoSlotFoundException {
-		String msg = slotservice.deleteSlotById(id);
-		ResponseEntity<String> rEntity = new ResponseEntity<String>(msg, HttpStatus.OK);
-		return rEntity;
-	}
-
 }

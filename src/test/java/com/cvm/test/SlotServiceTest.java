@@ -41,7 +41,7 @@ public class SlotServiceTest {
 		
 		when(slotDao.save(slot)).thenReturn(slot);
 		String result = slotService.insertSlot(slot);
-		assertEquals("Slot Added Successfully"+slot.getSlotId(), result);
+		assertEquals("Slot Added Successfully: "+slot.getSlotId(), result);
 	}
 
 	
@@ -89,7 +89,7 @@ public class SlotServiceTest {
 		when(slotDao.existsById(slot.getSlotId())).thenReturn(true);
 		when(slotDao.save(slot)).thenReturn(slot);
 		String result = slotService.updateSlot(id,slot);
-		assertEquals("Updated Successfully for id:"+slot.getSlotId(),result);
+		assertEquals("Updated Successfully for id :"+slot.getSlotId(),result);
 	}
 
 	@Test
@@ -104,7 +104,7 @@ public class SlotServiceTest {
 		
 		when(slotDao.existsById(slot.getSlotId())).thenReturn(true);
 		String result = slotService.deleteSlotById(slot.getSlotId());
-		assertEquals("Deleted Successfully for id:"+slot.getSlotId(), result);
+		assertEquals("Deleted Successfully for id :"+slot.getSlotId(), result);
 		}
 	
 	@Test
@@ -120,7 +120,6 @@ public class SlotServiceTest {
 		Optional<Slot> op = Optional.of(slot);
 		when(slotDao.findSlotBySlotLocation(location)).thenReturn(op);
 		Slot result = slotService.findSlotByLocation(location);
-		Optional<Slot> actual = Optional.of(result);
 		assertEquals(slot,result);
 		
 	}

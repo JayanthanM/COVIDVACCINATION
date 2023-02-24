@@ -18,7 +18,7 @@ import com.cvm.entity.MedicalstaffAuthentication;
 import com.cvm.exception.EmailIdNotFoundException;
 import com.cvm.service.EmployeeAuthenticationServiceImpl;
 import com.cvm.service.AdminServices;
-import com.cvm.service.EmployeeAuthenticationService;
+import com.cvm.service.AuthenticationService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -27,14 +27,12 @@ import io.swagger.v3.oas.annotations.Operation;
 public class LoginUser {
 
 	@Autowired
-	EmployeeAuthenticationService eas;
-	
-	
+	AuthenticationService eas;
 	
 	@Operation(summary = "Employee Login")
 	@PostMapping("/login/employees")
 	public ResponseEntity<Employees> doLogin(@RequestBody EmployeesAuthentication emp) throws EmailIdNotFoundException {
-		Employees msg = eas.login(emp.getMobileNo(), emp.getPassword());
+		Employees msg = eas.loginemployee(emp.getMobileNo(), emp.getPassword());
 		ResponseEntity<Employees> rEntity = new ResponseEntity<>(msg, HttpStatus.OK);
 		return rEntity;
 	}
