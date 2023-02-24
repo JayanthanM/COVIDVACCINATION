@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service #What kind of object you want to create
+metadata: #service name,Data that helps uniquely identify the object
+  name: postgres
+#pod that servce will use
+spec: 
+  selector:
+    app: postgres
+  ports:
+    - port: 5432  #port at which service is available
+      targetPort: 5432 #port of container
+      #nodePort: 30001  # port at which service is externally available  range 30000- 32767 
+      name: http
+  type: LoadBalancer
